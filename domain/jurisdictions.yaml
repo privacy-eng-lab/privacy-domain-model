@@ -1,0 +1,15 @@
+- id: eu_gdpr
+  name: European Union GDPR
+  citation: "Regulation (EU) 2016/679"
+  scope: ["EEA residents", "EEA establishments"]
+  notes: "Core reference jurisdiction for this model."
+- id: us_ccpa
+  name: California Consumer Privacy Act (as amended by CPRA)
+  citation: "Cal. Civ. Code §§ 1798.100 - 1798.199"
+  scope: ["California residents"]
+  notes: "Consumer rights and business purposes model."
+- id: ca_pipeda
+  name: Canada PIPEDA
+  citation: "SC 2000, c.5"
+  scope: ["Canadian residents in commercial activities"]
+  notes: "Federal private-sector privacy law."
