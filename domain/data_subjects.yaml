@@ -1,0 +1,36 @@
+# Categories of personal data for use across GDPR, CCPA/CPRA, and PIPEDA.
+# Each item has:
+# - id: short unique identifier
+# - name: human-readable label
+# - examples: sample fields
+# - special_category: true/false (for sensitive data)
+
+- id: identifiers_basic
+  name: Basic identifiers
+  examples: ["name", "email", "phone"]
+  special_category: false
+
+- id: contact
+  name: Contact details
+  examples: ["address", "postcode", "city", "country"]
+  special_category: false
+
+- id: financial
+  name: Financial data
+  examples: ["iban", "card_last4"]
+  special_category: false
+
+- id: online_identifiers
+  name: Online identifers
+  examples: ["ip_address", "device_id", "cookie_id"]
+  special_category: false
+
+- id: special_health
+  name: Health data
+  examples: ["diagnosis", "medication"]
+  special_category: true
+
+- id: special_biometric
+  name: Biometric data
+  examples: ["fingerprint_template", "faceprint"]
+  special_category: true
