@@ -1,0 +1,111 @@
+# Processing activities connect purposes, data subjects, data categories, and default legal bases.
+# Fields:
+# - id: short identifier
+# - name: human-readable label
+# - purposes: list of purpose ids from purposes.yaml
+# - default_legal_basis: one of legal_bases.yaml (for EU builds)
+# - data_subjects: ids from data_subjects.yaml
+# - data_categories: ids from data_categories.yaml
+# - systems: illustrative systems that hold data
+# - sale_share_status: none | sale | share | sale_or_share_possible (CPRA signal)
+# - uses_sensitive_pi: true/false (CPRA right to limit use)
+
+- id: onboarding_kyc
+  name: Customer onboarding and KYC
+  purposes: ["account_management", "aml_kyc", "security_fraud"]
+  default_legal_basis: legal_obligation
+  data_subjects: ["customers"]
+  data_categories: ["identifiers_basic", "identifiers_gov", "contact", "financial"]
+  systems: ["crm", "kyc_provider", "core_banking"]
+  sale_share_status: none
+  uses_sensitive_pi: true
+
+- id: account_profile
+  name: Account profile management
+  purposes: ["account_management"]
+  default_legal_basis: contract
+  data_subjects: ["customers"]
+  data_categories: ["identifiers_basic", "contact", "online_identifiers"]
+  systems: ["crm", "identity_provider"]
+  sale_share_status: none
+  uses_sensitive_pi: false
+
+- id: support_tickets
+  name: Support ticket handling
+  purposes: ["customer_support", "security_fraud"]
+  default_legal_basis: contract
+  data_subjects: ["customers"]
+  data_categories: ["identifiers_basic", "contact", "online_identifiers"]
+  systems: ["helpdesk", "ticketing"]
+  sale_share_status: none
+  uses_sensitive_pi: false
+
+- id: telemetry_collection
+  name: Telemetry and product analytics collection
+  purposes: ["analytics_product", "internal_research", "service_improvement"]
+  default_legal_basis: legitimate_interests
+  data_subjects: ["website_visitors", "customers"]
+  data_categories: ["online_identifiers"]
+  systems: ["event_pipeline", "data_warehouse"]
+  sale_share_status: share_possible
+  uses_sensitive_pi: false
+
+- id: marketing_crm
+  name: Direct marketing via email or in-app
+  purposes: ["marketing_direct"]
+  default_legal_basis: consent
+  data_subjects: ["customers", "website_visitors"]
+  data_categories: ["identifiers_basic", "online_identifiers"]
+  systems: ["crm", "email_service"]
+  sale_share_status: sale_or_share_possible
+  uses_sensitive_pi: false
+
+- id: ads_behavioral
+  name: Cross-context behavioural advertising
+  purposes: ["cross_context_ads"]
+  default_legal_basis: consent
+  data_subjects: ["website_visitors", "customers"]
+  data_categories: ["online_identifiers"]
+  systems: ["tag_manager", "ads_platform"]
+  sale_share_status: share
+  uses_sensitive_pi: false
+
+- id: fraud_detection
+  name: Fraud detection and risk scoring
+  purposes: ["security_fraud", "auditing"]
+  default_legal_basis: legitimate_interests
+  data_subjects: ["customers", "website_visitors"]
+  data_categories: ["online_identifiers", "financial", "identifiers_basic"]
+  systems: ["fraud_engine", "payments_gateway"]
+  sale_share_status: none
+  uses_sensitive_pi: true
+
+- id: qa_testing
+  name: Quality assurance and debugging
+  purposes: ["debugging", "service_improvement"]
+  default_legal_basis: legitimate_interests
+  data_subjects: ["website_visitors", "customers"]
+  data_categories: ["online_identifiers", "identifiers_basic"]
+  systems: ["staging_env", "logs_store"]
+  sale_share_status: none
+  uses_sensitive_pi: false
+
+- id: incident_response
+  name: Security incident investigation and breach response
+  purposes: ["incident_response", "security_fraud", "auditing"]
+  default_legal_basis: legal_obligation
+  data_subjects: ["customers", "employees", "website_visitors"]
+  data_categories: ["online_identifiers", "identifiers_basic", "financial", "special_biometric"]
+  systems: ["siem", "case_management", "forensics_store"]
+  sale_share_status: none
+  uses_sensitive_pi: true
+
+- id: hr_core
+  name: HR and workforce administration
+  purposes: ["hr_management", "security_fraud"]
+  default_legal_basis: contract
+  data_subjects: ["employees", "contractors"]
+  data_categories: ["identifiers_basic", "contact", "financial", "special_biometric"]
+  systems: ["hris", "payroll", "idm"]
+  sale_share_status: none
+  uses_sensitive_pi: true
