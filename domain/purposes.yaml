@@ -1,0 +1,166 @@
+# Purposes of processing personal data across GDPR, CCPA/CPRA, and PIPEDA.
+# Each entry has:
+# - id: short identifier
+# - name: human-readable label
+# - compatible_bases: GDPR lawful bases
+# - ccpa_business_purpose_id: CPRA business purpose (if any)
+# - ccpa_refs: CPRA/CCPA citation(s)
+# - pipeda_notes: how PIPEDA treats this purpose
+# - sale_share_implicated: sale/share relevance under CPRA
+# - sensitive_pi_limited_use: true if sensitive PI use is restricted
+# - typical_subjects: affected individuals
+# - typical_categories: data categories involved
+
+- id: account_management
+  name: Account creation and management
+  compatible_bases: ["contract", "legal_obligation", "legitimate_interests"]
+  ccpa_business_purpose_id: "performing_services"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Consent often implied for core service provision."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers"]
+  typical_categories: ["identifiers_basic", "contact", "online_identifiers"]
+
+- id: customer_support
+  name: Customer support and service
+  compatible_bases: ["contract", "legitimate_interests"]
+  ccpa_business_purpose_id: "performing_services"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Implied consent valid for service requests; must remain limited."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers"]
+  typical_categories: ["identifiers_basic", "contact", "online_identifiers"]
+
+- id: security_fraud
+  name: Security monitoring and fraud prevention
+  compatible_bases: ["legitimate_interests", "legal_obligation"]
+  ccpa_business_purpose_id: "security_and_integrity"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Can rely on reasonable purposes or statutory authority."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: true
+  typical_subjects: ["customers", "employees", "website_visitors"]
+  typical_categories: ["online_identifiers", "financial", "identifiers_basic"]
+
+- id: auditing
+  name: Auditing and compliance verification
+  compatible_bases: ["legitimate_interests", "legal_obligation"]
+  ccpa_business_purpose_id: "auditing"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Auditing may be necessary for accountability; ensure proportionality."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers", "employees", "vendors"]
+  typical_categories: ["identifiers_basic", "financial", "online_identifiers"]
+
+- id: debugging
+  name: Debugging and error remediation
+  compatible_bases: ["legitimate_interests"]
+  ccpa_business_purpose_id: "debugging"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Collect only what is strictly necessary for troubleshooting."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["website_visitors", "customers"]
+  typical_categories: ["online_identifiers"]
+
+- id: short_term_use
+  name: Short-term transient use
+  compatible_bases: ["legitimate_interests", "consent"]
+  ccpa_business_purpose_id: "short_term_transient_use"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Should be minimal and temporary; avoid onward disclosure."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["website_visitors", "customers"]
+  typical_categories: ["online_identifiers"]
+
+- id: service_improvement
+  name: Quality assurance and service improvement
+  compatible_bases: ["legitimate_interests", "consent"]
+  ccpa_business_purpose_id: "quality_and_safety"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Reasonableness test applies; use de-identified data where possible."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers", "website_visitors"]
+  typical_categories: ["online_identifiers", "identifiers_basic"]
+
+- id: internal_research
+  name: Internal research and development
+  compatible_bases: ["legitimate_interests", "consent"]
+  ccpa_business_purpose_id: "internal_research"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Prefer de-identified data; may need express consent depending on context."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers", "website_visitors"]
+  typical_categories: ["online_identifiers", "identifiers_basic"]
+
+- id: analytics_product
+  name: Product analytics and measurement
+  compatible_bases: ["legitimate_interests", "consent"]
+  ccpa_business_purpose_id: "internal_research"
+  ccpa_refs: ["§1798.140(e)"]
+  pipeda_notes: "Consent may be required if beyond reasonable expectations."
+  sale_share_implicated: "share_possible"
+  sensitive_pi_limited_use: false
+  typical_subjects: ["website_visitors", "customers"]
+  typical_categories: ["online_identifiers", "identifiers_basic"]
+
+- id: marketing_direct
+  name: Direct marketing communications
+  compatible_bases: ["consent", "legitimate_interests"]
+  ccpa_business_purpose_id: "advertising_marketing"
+  ccpa_refs: ["§1798.120, §1798.135"]
+  pipeda_notes: "Requires consent; opt-out must be easy."
+  sale_share_implicated: "sale_or_share_possible"
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers", "website_visitors"]
+  typical_categories: ["identifiers_basic", "online_identifiers"]
+
+- id: cross_context_ads
+  name: Cross-context behavioural advertising
+  compatible_bases: ["consent"]
+  ccpa_business_purpose_id: null
+  ccpa_refs: ["§1798.140(ah) – definition of 'share'"]
+  pipeda_notes: "Likely requires express consent depending on jurisdiction."
+  sale_share_implicated: "share"
+  sensitive_pi_limited_use: false
+  typical_subjects: ["customers", "website_visitors"]
+  typical_categories: ["online_identifiers"]
+
+- id: aml_kyc
+  name: Anti-money laundering and KYC
+  compatible_bases: ["legal_obligation"]
+  ccpa_business_purpose_id: "performing_services"
+  ccpa_refs: ["§1798.145(a)(1) legal compliance carve-out"]
+  pipeda_notes: "Processing permitted by law; consent not required where prohibited."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: true
+  typical_subjects: ["customers"]
+  typical_categories: ["identifiers_basic", "identifiers_gov", "financial"]
+
+- id: hr_management
+  name: Human resources and workforce management
+  compatible_bases: ["contract", "legal_obligation", "legitimate_interests"]
+  ccpa_business_purpose_id: "performing_services"
+  ccpa_refs: ["Employee exemptions under review — check CPRA updates"]
+  pipeda_notes: "Provincial employment laws may apply; consent context-specific."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: true
+  typical_subjects: ["employees", "contractors"]
+  typical_categories: ["identifiers_basic", "contact", "financial", "special_biometric"]
+
+- id: incident_response
+  name: Incident detection and breach response
+  compatible_bases: ["legal_obligation", "legitimate_interests"]
+  ccpa_business_purpose_id: "security_and_integrity"
+  ccpa_refs: ["§1798.150 – private right of action for certain breaches"]
+  pipeda_notes: "Mandatory breach reporting requirements apply."
+  sale_share_implicated: null
+  sensitive_pi_limited_use: true
+  typical_subjects: ["customers", "employees", "website_visitors"]
+  typical_categories: ["online_identifiers", "identifiers_basic", "financial"]
