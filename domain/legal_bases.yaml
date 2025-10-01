@@ -1,0 +1,50 @@
+# Canonical list of lawful bases and nearest equivalents for cross-jurisdiction alignment.
+# GDPR uses lawful bases. CCPA/CPRA uses rights and business purposes, not lawful bases.
+# PIPEDA relies on consent with reasonableness and limited exceptions.
+
+- id: consent
+  name: Consent
+  citations:
+    eu_gdpr: "Art. 6(1)(a); Arts. 7, 8"
+    ca_pipeda: "Principle 4.3; 4.3.2; 4.3.6"
+  constraints:
+    - "Must be informed, specific, unambiguous and freely given."
+    - "Withdrawal must be as easy as giving consent."
+  notes: "Under CCPA/CPRA consent is not a general lawful basis but may be relevant for sale/share or sensitive personal information."
+
+- id: contract
+  name: Performance of a contract or steps prior to entering a contract
+  citations:
+    eu_gdpr: "Art. 6(1)(b)"
+    ca_pipeda: "Principle 4.3.2 (implied consent may be reasonable for core service delivery)"
+  constraints:
+    - "Limit processing to what is necessary for the contract."
+
+- id: legal_obligation
+  name: Compliance with a legal obligation
+  citations:
+    eu_gdpr: "Art. 6(1)(c)"
+    ca_pipeda: "Principle 4.3.3; statutory obligations without consent"
+  notes: "CCPA/CPRA permits processing required by law. Treat as permitted activity, not a lawful basis label."
+
+- id: vital_interests
+  name: Protection of vital interests
+  citations:
+    eu_gdpr: "Art. 6(1)(d)"
+    ca_pipeda: "Emergencies threatening life, health or security (consent not required)"
+  notes: "Use in true emergencies only."
+
+- id: public_task
+  name: Task carried out in the public interest or in the exercise of official authority
+  citations:
+    eu_gdpr: "Art. 6(1)(e)"
+  notes: "Generally not applicable to private-sector entities under CCPA/CPRA or PIPEDA."
+
+- id: legitimate_interests
+  name: Legitimate interests pursued by the controller or a third party
+  citations:
+    eu_gdpr: "Art. 6(1)(f)"
+    ca_pipeda: "Section 5(3) reasonableness test and proportionality"
+  constraints:
+    - "Apply a three-part test: purpose, necessity, balancing with data subject interests."
+  notes: "CCPA/CPRA does not recognise legitimate interests as a lawful basis. Map relevant operations to CPRA business purposes instead."
